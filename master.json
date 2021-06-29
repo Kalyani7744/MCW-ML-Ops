@@ -1,0 +1,10 @@
+[ {
+  "Name": "MCW - MLOps",
+  "Language": "English",
+  "Files": [
+    {
+      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-ML-Ops/fix/Hands-on%20lab/HOL%20step-by-step%20-%20MLOps.md",
+      "Order": 1
+    }
+  ]
+} ]
