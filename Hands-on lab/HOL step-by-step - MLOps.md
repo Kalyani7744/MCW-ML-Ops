@@ -106,19 +106,17 @@ The overall approach used in this lab is to orchestrate continuous integration a
 
 2. An Azure DevOps account.
 
-## Before the hands-on lab
+## Prerequisites
+
+### Task 1: Install the Microsoft DevLabs Machine Learning plugin for Azure DevOps
 
 1. Navigate to the VisualStudio Marketplace: https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml and select **Get it free**.
 
 2. Select **Azure DevOps organization** from the dropdown list and then select **Install**.
 
     ![The Microsoft DevLabs Machine Learning plugin for Azure DevOps page is shown with the Azure DevOps organization selected and the Install button highlighted.](media/bhol-04.png 'Install Plug-In')
-
-## Exercise 1: Setup New Project in Azure DevOps
-
-Duration: 20 minutes
-
-### Task 1: Setup Azure DevOps Agent
+   
+### Task 2: Setup Azure DevOps Agent  
 
 1. Sign in to [Azure DevOps](http://dev.azure.com).
 
@@ -137,20 +135,12 @@ Duration: 20 minutes
 4. Save the token somewhere safe and accessible for later use during the setup and close the window.
 
    ![Success dialog is shown, and the Copy and Close buttons are highlighted.](media/setup-pat3.png 'Personal Access Token')
-
-5. Select **+ New project**.
-
-    ![In the Azure DevOps screen, the + New project button is selected.](media/devops-project-01.png 'Create new project')
-
-6. Provide Project Name: `mlops-quickstart` and select **Create**.
-
-    ![The Create new project dialog is shown populated with the value above. Visibility is set to Private, and the Create button is highlighted.](media/devops-project-02.png 'Create New Project Dialog')
     
-7. From within Azure DevOps, navigate to **Organization Settings, Agent pools** and then select **Add pool**.
+5. From within Azure DevOps, navigate to **Organization Settings, Agent pools** and then select **Add pool**.
 
    ![Agent pools section under organization settings is shown, and the Add pool button is highlighted.](media/setup-agent-pool1.png 'Add Pool')
 
-8. In the `Add agent pool` dialog provide the following information and then select **Create**:
+6. In the `Add agent pool` dialog provide the following information and then select **Create**:
  
     - **Pool type**: `Self-hosted`
     - **Name**: `MCW Agent Pool`
@@ -159,25 +149,25 @@ Duration: 20 minutes
 
     ![Add gent pool token dialog is shown populated with the values above, and the Create button is highlighted.](media/setup-agent-pool2.png 'Add Agent Pool')
 
-9. Navigate to **MCW Agent Pool, Agents** and then select **New agent**.
+7. Navigate to **MCW Agent Pool, Agents** and then select **New agent**.
 
     ![The Agents section of the MCW Agent Pool page is shown, and the New agent button is highlighted.](media/setup-agent-pool3.png 'Add New Agent')
 
-10. From the `Get the agent` dialog, select **Linux, x64**, copy `Download the agent URL` and save it for later use during the setup, and then close the dialog.
+8. From the `Get the agent` dialog, select **Linux, x64**, copy `Download the agent URL` and save it for later use during the setup, and then close the dialog.
 
     ![The Linux, x64 section of the Get the agent dialog is shown, and the Copy button is highlighted.](media/setup-agent-pool4.png 'Get the Agent')
     
-11. Go to Resource Group, from the `Overview` section of the ubuntu virtual machine, copy the **Public IP address** and save it for later use.
+9. Go to Resource Group, from the `Overview` section of the ubuntu virtual machine, copy the **Public IP address** and save it for later use.
 
    ![Virtual Machine Overview page is shown with copy Public IP address button is highlighted.](media/setup-vm2.png 'Virtual Machine Overview')
 
-12. From an `Azure cloud shell` or `terminal` or `command prompt`, run the following commands:
+10. From an `Azure cloud shell` or `terminal` or `command prompt`, run the following commands:
 
     - `ssh mlopsuser@xx.xxx.xxx.xxx` (replace the IP address with your VMs public IP address)
        - If you are prompted: `Are you sure you want to continue connecting (yes/no/[fingerprint])?`, type `yes`
     - Provide password for `mlopsuser`
 
-13. Once you are logged into the VM, run the following commands:
+11. Once you are logged into the VM, run the following commands:
 
    - `curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash`
    - `az extension add --name azure-cli-ml`
@@ -199,11 +189,26 @@ Duration: 20 minutes
    - `sudo ./svc.sh start`
       > **Note**: to stop the agent run: `sudo ./svc.sh stop`. If required, you can find more details on setting up and configuring Self-hosted Linux agents [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops).
 
-14. From within Azure DevOps, navigate to **Organization Settings, Agent Pools, MCW Agent Pool** and then select the **Agents** tab. Confirm that the `mlops-agent` is `online`.
+12. From within Azure DevOps, navigate to **Organization Settings, Agent Pools, MCW Agent Pool** and then select the **Agents** tab. Confirm that the `mlops-agent` is `online`.
 
   ![The Agents tab of MCW Agent Pool showing the status of the mlops-agent as online.](media/check-agent-status.png 'MCW Agent Pool Status')
 
-  
+## Exercise 1: Setup New Project in Azure DevOps
+
+Duration: 20 minutes
+
+### Task 1: Create New Project
+
+1. Sign in to [Azure DevOps](http://dev.azure.com).
+
+2. Select **+ New project**.
+
+    ![In the Azure DevOps screen, the + New project button is selected.](media/devops-project-01.png 'Create new project')
+
+3. Provide Project Name: `mlops-quickstart` and select **Create**.
+
+    ![The Create new project dialog is shown populated with the value above. Visibility is set to Private, and the Create button is highlighted.](media/devops-project-02.png 'Create New Project Dialog')
+
 
 ### Task 2: Import Quickstart code from a GitHub Repo
 
