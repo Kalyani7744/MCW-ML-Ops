@@ -108,7 +108,11 @@ The overall approach used in this lab is to orchestrate continuous integration a
 
 ## Before the hands-on lab
 
-Refer to the [Before the hands-on lab setup guide](./Before&#32;the&#32;HOL&#32;-&#32;MLOps.md) before continuing to the lab exercises.
+1. Navigate to the VisualStudio Marketplace: https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml and select **Get it free**.
+
+2. Select **Azure DevOps organization** from the dropdown list and then select **Install**.
+
+    ![The Microsoft DevLabs Machine Learning plugin for Azure DevOps page is shown with the Azure DevOps organization selected and the Install button highlighted.](media/bhol-04.png 'Install Plug-In')
 
 ## Exercise 1: Setup New Project in Azure DevOps
 
@@ -118,13 +122,33 @@ Duration: 20 minutes
 
 1. Sign in to [Azure DevOps](http://dev.azure.com).
 
-2. Select **+ New project**.
+2. Select **User setting, Personal Access Tokens**.
+
+    ![Azure DevOps home page is shown with the user setting menu open and the Personal Access Tokens option selected.](media/setup-pat1.png 'Personal Access Tokens')
+
+3. Select **+ New Token** and provide the following information and then select **Create**:
+
+    - **Name**: `mlops-agent`
+    - **Organization**: `Select your organization`
+    - **Full access**: `Selected`
+
+    ![Create new personal access token dialog is shown populated with the values above, and the Create button is highlighted.](media/setup-pat2.png 'Create New Personal Access Token')
+
+4. Save the token somewhere safe and accessible for later use during the setup and close the window.
+
+   ![Success dialog is shown, and the Copy and Close buttons are highlighted.](media/setup-pat3.png 'Personal Access Token')
+
+5. Sign in to [Azure DevOps](http://dev.azure.com).
+
+6. Select **+ New project**.
 
     ![In the Azure DevOps screen, the + New project button is selected.](media/devops-project-01.png 'Create new project')
 
-3. Provide Project Name: `mlops-quickstart` and select **Create**.
+7. Provide Project Name: `mlops-quickstart` and select **Create**.
 
     ![The Create new project dialog is shown populated with the value above. Visibility is set to Private, and the Create button is highlighted.](media/devops-project-02.png 'Create New Project Dialog')
+
+  
 
 ### Task 2: Import Quickstart code from a GitHub Repo
 
