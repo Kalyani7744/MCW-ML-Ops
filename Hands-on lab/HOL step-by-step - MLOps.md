@@ -106,8 +106,9 @@ The overall approach used in this lab is to orchestrate continuous integration a
 
 2. An Azure DevOps account.
 
-## Prerequisites
+## Before the hands-on lab
 
+Refer to the [Before the hands-on lab setup guide](./Before&#32;the&#32;HOL&#32;-&#32;MLOps.md) before continuing to the lab exercises.
 
 ## Exercise 1: Setup New Project in Azure DevOps
 
