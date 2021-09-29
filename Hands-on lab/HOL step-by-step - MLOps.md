@@ -118,7 +118,7 @@ The overall approach used in this lab is to orchestrate continuous integration a
 
 Duration: 20 minutes
 
-### Task 1: Create New Project
+### Task 1: Setup Azure DevOps Agent
 
 1. Sign in to [Azure DevOps](http://dev.azure.com).
 
